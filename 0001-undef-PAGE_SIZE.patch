@@ -1,0 +1,27 @@
+From 6e054a1fda180f2abbc9194c6e0b8719bc4b5a38 Mon Sep 17 00:00:00 2001
+From: Masaki Muranaka <monaka@monami-ya.com>
+Date: Sat, 19 Oct 2019 09:35:05 +0900
+Subject: [PATCH] undef PAGE_SIZE.
+
+Signed-off-by: Masaki Muranaka <monaka@monami-ya.com>
+---
+ include/qemu/osdep.h | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/include/qemu/osdep.h b/include/qemu/osdep.h
+index e8568a0a54..92a17df1d3 100644
+--- a/include/qemu/osdep.h
++++ b/include/qemu/osdep.h
+@@ -70,6 +70,9 @@ extern int daemon(int, int);
+ #include <strings.h>
+ #include <inttypes.h>
+ #include <limits.h>
++#ifdef PAGE_SIZE
++#undef PAGE_SIZE
++#endif
+ /* Put unistd.h before time.h as that triggers localtime_r/gmtime_r
+  * function availability on recentish Mingw-w64 platforms. */
+ #include <unistd.h>
+-- 
+2.11.0
+
