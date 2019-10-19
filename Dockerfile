@@ -51,4 +51,6 @@ COPY --from=build \
     /var/dts
 
 RUN apk add --no-cache pixman glib libgcc glib libgcrypt zlib libbz2 libstdc++
+
+EXPOSE 1234
 USER user
