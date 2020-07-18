@@ -7,7 +7,7 @@ LABEL maintainer "Masaki Muranaka <monaka@pizzafactory.jp>"
 RUN apk add --no-cache \
       git \
       build-base \
-      python \
+      python3 \
       glib-dev \
       libgcrypt-dev \
       zlib-dev \
@@ -34,7 +34,7 @@ WORKDIR /projects/qemu-devicetrees
 RUN make OUTDIR=/var/dts
 
 
-FROM pizzafactory0contorno/piatto:alpine
+FROM pizzafactory0contorno/piatto:alpine-3.10
 
 USER root
 
